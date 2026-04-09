@@ -1,16 +1,10 @@
 ﻿namespace knightmoves;
 using static StateList;
-public class StateLookUp{
+using System.Linq;
 
-    public IEnumerable<string> LookUp(string search){
-        var matches = new List<string>();
-
-        foreach(string state in STATES){
-            if(state.StartsWith(search)){
-                matches.Add(state);
-            }
-        }
-
-        return matches;
+public class StateLookUp {
+    public IEnumerable<string> LookUp(string search) {
+        return STATES.Where(state => state.StartsWith(search));
     }
 }
+
